@@ -22,7 +22,7 @@ This challenge encourages us to utilize the knowledge we leaned about Object-Ori
 
 [GitHub Repository](https://github.com/Gareth-Kwan/team-profile-generator)
 
-[Link to Google Drive video](https://drive.google.com/file/d/1fxCjX3yR7ZYaxacXwyr3F2sHwVAcWdoF/view)
+[Link to Google Drive video](https://drive.google.com/file/d/1aImln6mEcXwdOklrveW78OHL7DcJWMGB/view)
 
 # Screenshots
 
