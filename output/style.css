@@ -1,13 +1,59 @@
-.jumbotron {
-    border-radius: 0;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.employee-card {
-    box-shadow: 5px 5px 5px gray;
-    margin: 1rem;
-    border: none;
+.banner {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  text-align: center;
 }
 
-.card-body {
-    background-color: rgb(240, 240, 240);
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.card .title {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.card h2 {
+  background-color: red;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 0;
+  padding: 5px;
+}
+
+.card .title,
+.card h2 {
+  background-color: red;
+  color: white;
+}
+
+.card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card li {
+  margin: 5px 0;
 }

@@ -1,13 +1,17 @@
-const Manager = require("./lib/Manager.js");
-const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern.js");
-const inquirer = require("inquirer");
-const path = require("path");
+//Required Declaration
 const fs = require("fs");
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const path = require("path");
+const inquirer = require("inquirer");
 const generateTeam = require("./src/template.js");
+const Manager = require("./library/Manager.js");
+const Engineer = require("./library/Engineer.js");
+const Intern = require("./library/Intern.js");
 
+//Outputting the data to our index HTML
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "index.html");
+
+//Empty array to be filled by team generator function below
 teamArray = [];
 
 function runApp() {
@@ -16,13 +20,13 @@ function runApp() {
       .prompt([
         {
           type: "list",
-          message: "What type of employee would you like to add to your team?",
-          name: "addEmployeePrompt",
-          choices: ["Manager", "Engineer", "Intern", "No more team members are needed."],
+          message: "Which type of employee would you like to be added to your team?",
+          name: "addEmployee",
+          choices: ["Manager", "Engineer", "Intern", "Show me my team"],
         },
       ])
       .then(function (userInput) {
-        switch (userInput.addEmployeePrompt) {
+        switch (userInput.addEmployee) {
           case "Manager":
             addManager();
             break;
@@ -32,14 +36,14 @@ function runApp() {
           case "Intern":
             addIntern();
             break;
-
+          case "Show me my team":
+            renderHTML();
+            break;
           default:
-            htmlBuilder();
+            renderHTML();
         }
       });
   }
-  // OOP Functions
-
   function addManager() {
     inquirer
       .prompt([
@@ -52,13 +56,13 @@ function runApp() {
         {
           type: "input",
           name: "managerId",
-          message: "What is the manager's employee ID number?",
+          message: "What is the manager's employee ID ?",
         },
 
         {
           type: "input",
           name: "managerEmail",
-          message: "What is the manager's email address?",
+          message: "What is the manager's email ?",
         },
 
         {
@@ -91,13 +95,13 @@ function runApp() {
         {
           type: "input",
           name: "engineerId",
-          message: "What is the engineer's employee ID number?",
+          message: "What is the engineer's employee ID?",
         },
 
         {
           type: "input",
           name: "engineerEmail",
-          message: "What is the engineer's email address?",
+          message: "What is the engineer's email?",
         },
 
         {
@@ -130,13 +134,13 @@ function runApp() {
         {
           type: "input",
           name: "internId",
-          message: "What is the intern's employee ID number?",
+          message: "What is the intern's employee ID?",
         },
 
         {
           type: "input",
           name: "internEmail",
-          message: "What is the intern's email address?",
+          message: "What is the intern's email?",
         },
 
         {
@@ -156,13 +160,10 @@ function runApp() {
         createTeam();
       });
   }
-
-  function htmlBuilder() {
-    console.log("Team created!");
-
+  function renderHTML() {
+    console.log("Your team has been Generated!");
     fs.writeFileSync(outputPath, generateTeam(teamArray), "UTF-8");
   }
-
   createTeam();
 }
 
